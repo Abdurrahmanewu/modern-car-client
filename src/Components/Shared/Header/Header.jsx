@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
   const menuItems = (
     <>
       <li className="font-semibold">
@@ -20,6 +27,7 @@ const Header = () => {
       <li className="font-semibold">
         <Link to="/login">Login</Link>
       </li>
+      <li>{user?.email}</li>
     </>
   );
   return (
@@ -57,7 +65,18 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn">Button</Link>
+        {user?.uid ? (
+          <Link
+            onClick={handleLogout}
+            className="btn-warning text-xl p-3 rounded-lg"
+          >
+            LogOut
+          </Link>
+        ) : (
+          <Link to="login" className="btn-success text-xl p-3 rounded-lg">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
