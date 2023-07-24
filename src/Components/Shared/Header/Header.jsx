@@ -22,11 +22,9 @@ const Header = () => {
         <Link to="/login">Service</Link>
       </li>
       <li className="font-semibold">
-        <Link to="/login">Blog</Link>
+        <Link to="/orders">Orders</Link>
       </li>
-      <li className="font-semibold">
-        <Link to="/login">Login</Link>
-      </li>
+
       <li>{user?.email}</li>
     </>
   );
