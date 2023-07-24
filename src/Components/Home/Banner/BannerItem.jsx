@@ -12,7 +12,7 @@ const BannerItem = ({ slide }) => {
       <div className=" absolute  transform -translate-y-1/2 left-24 top-1/4">
         <h1 className="text-6xl font-bold text-white">
           Affordable <br />
-          Price for ca <br />
+          Price for car <br />
           Servicing
         </h1>
       </div>
